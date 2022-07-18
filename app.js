@@ -6,7 +6,8 @@ const port = 3000;
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
-const session = require('express-session')
+const session = require('express-session');
+const formidableMiddleware = require('express-formidable');
 const { loadContact, detailContact, addContact, hapusContact, cekDuplikat, updateContact } = require('./utils/contact');
 
 app.set('view engine', 'ejs');
