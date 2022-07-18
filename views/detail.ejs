@@ -1,8 +1,8 @@
-<div class="container-fluid p-5">
+
     <div class="row">
-        <div class="col-4">
+        <div class="col-md-4">
             <div class="col">
-                <div class="card" style="width: 18rem;">
+                <div class="card m-3" style="width: 18rem;">
                     <img src="../img/ava.png" alt="ava">
                     <div class="card-body">
                         <h5 class="card-title">
@@ -14,16 +14,17 @@
                         <p class="card-text">
                             <%= contact.email %>
                         </p>
+                        <a class="btn btn-primary" href="/contact" role="button">Kembali</a>
+                        <a href="/contact/edit/<%= contact.name %>" class="btn btn-warning">Edit</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-md-8">
             <div class="jumbotron">
-                <h1 class="display-4">Halaman Detail</h1>
+                <h1 class="display-4">Halaman Detail: <%= contact.name %></h1>
                 <hr class="my-4">
-                <a class="btn btn-primary btn-lg" href="/contact" role="button">Kembali</a>
+                <a href="/contact/delete/<%= contact.name %>" class="btn btn-danger btn-lg">Hapus</a>
             </div>
         </div>
     </div>
-</div>

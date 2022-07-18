@@ -45,4 +45,26 @@ const addContact = (contact) => {
     saveContact(contacts);
 }
 
-module.exports = {loadContact, detailContact, addContact};
+// edit kontak yang dicari
+const updateContact = (baruContacts) => {
+    const contacts = loadContact();
+    const filteredContacts = contacts.filter((contact) => contact.name !== baruContacts.oldName);
+    delete baruContacts.oldName;
+    filteredContacts.push(baruContacts);
+    saveContact(filteredContacts);
+}
+
+// hapus data
+const hapusContact = (name) => {
+    const contacts = loadContact();
+    const newContacts = contacts.filter((contact) => contact.name !== name);
+    fs.writeFileSync('data/contacts.json', JSON.stringify(newContacts));
+    console.log('Thankyou');
+};
+// cek nama duplikat
+const cekDuplikat = (name) => {
+    const contacts = loadContact();
+    return contacts.find((contact) => contact.name === name);
+}
+
+module.exports = { loadContact, detailContact, addContact, cekDuplikat, hapusContact, updateContact };
