@@ -4,19 +4,6 @@
             <div class="col">
                 <div class="card m-3" style="width: 18rem;">
                     <img src="../img/ava.png" alt="ava">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= contact.name %>
-                        </h5>
-                        <p class="card-text">
-                            <%= contact.mobile %>
-                        </p>
-                        <p class="card-text">
-                            <%= contact.email %>
-                        </p>
-                        <a class="btn btn-primary" href="/contact" role="button">Kembali</a>
-                        <a href="/contact/edit/<%= contact.name %>" class="btn btn-warning">Edit</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -24,7 +11,20 @@
             <div class="jumbotron">
                 <h1 class="display-4">Halaman Detail: <%= contact.name %></h1>
                 <hr class="my-4">
-                <a href="/contact/delete/<%= contact.name %>" class="btn btn-danger btn-lg">Hapus</a>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= contact.name %>
+                    </h5>
+                    <p class="card-text">
+                        <%= contact.mobile %>
+                    </p>
+                    <p class="card-text">
+                        <%= contact.email %>
+                    </p>
+                    <a href="/contact/edit/<%= contact.name %>" class="btn btn-warning">Edit</a>
+                    <a href="/contact/delete/<%= contact.name %>" class="btn btn-danger" onclick="return confirm('Yakin?')">Hapus</a>
+                    <a class="btn btn-primary" href="/contact" role="button">Kembali</a>
+                </div>
             </div>
         </div>
     </div>

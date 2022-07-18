@@ -16,7 +16,7 @@
             <input type="hidden" name="oldName" value="<%= (contact.oldName) ? contact.oldName : contact.name %>">
             <div class="mb-3">
               <label for="nama" class="form-label">Nama</label>
-              <input type="text" class="form-control" id="nama" name="name" required value="<%= contact.name %>" />
+              <input type="text" class="form-control" id="name" name="name" required value="<%= contact.name %>" />
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
@@ -26,7 +26,9 @@
               <label for="mobile" class="form-label">No HP</label>
               <input type="number" class="form-control" id="mobile" name="mobile" required value="<%= contact.mobile %>" />
             </div>
-            <button type="submit" class="btn btn-primary">Edit Data</button>
+            <button type="submit" class="btn btn-warning">Edit Data</button>
+            <a class="btn btn-primary" href="/contact/<%= contact.name %> "
+              role="button">Kembali</a>
           </form>
 
     </div>

@@ -34,23 +34,28 @@ app.use(session({
     saveUninitialized: true,
  }));
 
+//  index
 app.get('/', (req, res, next) => {
     res.render('index',
         {
-            nama: 'Alya',
+            nama: 'Andika',
             title: 'Webserver EJS',
             layout: 'layout/main-layout',
         });
 });
 
+// about
 app.get('/about', (req, res, next) => {
-    res.render('about', { title: 'about', layout: 'layout/main-layout', });
+    res.render('about', { 
+        title: 'Laman About',
+        layout: 'layout/main-layout',
+    });
 });
 
 app.get('/contact', (req, res, next) => {
     const contact = loadContact();
     res.render('contact', { 
-        title: 'contact',
+        title: 'Laman Contact',
         layout: 'layout/main-layout',
         contact,
         msg: req.flash('msg'),
@@ -60,7 +65,7 @@ app.get('/contact', (req, res, next) => {
 // tambah data
 app.get('/contact/add', (req, res) => {
     res.render('add-contact', {
-        title: 'tambah contact',
+        title: 'Laman Tambah Contact',
         layout: 'layout/main-layout',
     });
 })
@@ -69,7 +74,7 @@ app.get('/contact/add', (req, res) => {
 app.get('/contact/:name', (req, res, next) => {
     const contact = detailContact(req.params.name);
     res.render('detail', { 
-        title: 'detail',
+        title: 'Laman Detail',
         layout: 'layout/main-layout',
         contact,
     });
@@ -90,7 +95,7 @@ app.post('/contact', [
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         res.render('add-contact', {
-            title: 'form tambah',
+            title: 'Laman Form Tambah Data',
             layout: 'layout/main-layout',
             errors: errors.array(),
         })
@@ -118,7 +123,7 @@ app.get('/contact/delete/:name', (req, res) => {
 app.get('/contact/edit/:name', (req, res) => {
     const contact = detailContact(req.params.name);
     res.render('edit-contact', {
-        title: 'edit contact',
+        title: 'Laman Edit Contact',
         layout: 'layout/main-layout',
         contact,
     });

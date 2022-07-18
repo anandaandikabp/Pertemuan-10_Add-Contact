@@ -21,7 +21,7 @@ const loadContact = () => {
 // menampilkan detail kontak yang dicari
 const detailContact = (name) => {
     const contacts = loadContact();
-    const contact = contacts.find((contact) => contact.name === name);
+    const contact = contacts.find((contact) => contact.name.toLowerCase() === name.toLowerCase());
     if (!contact) {
         console.log((`${name} tidak ditemukan`));
         return false;
@@ -48,7 +48,7 @@ const addContact = (contact) => {
 // edit kontak yang dicari
 const updateContact = (baruContacts) => {
     const contacts = loadContact();
-    const filteredContacts = contacts.filter((contact) => contact.name !== baruContacts.oldName);
+    const filteredContacts = contacts.filter((contact) => contact.name.toLowerCase() !== baruContacts.oldName.toLowerCase());
     delete baruContacts.oldName;
     filteredContacts.push(baruContacts);
     saveContact(filteredContacts);
